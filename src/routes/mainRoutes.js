@@ -13,8 +13,10 @@ const router = express.Router();
 // DEFINE ROUTES
 // ##############################################################
 const carsRoutes = require("./carsRoutes");
+const ownersRoutes = require("./ownersRoutes");
 
 router.use("/cars", carsRoutes);
+router.use("/owners", ownersRoutes);
 
 // ##############################################################
 // EXPORT ROUTER
