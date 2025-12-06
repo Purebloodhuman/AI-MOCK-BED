@@ -19,7 +19,7 @@ router.put(
   controller.serviceCar
 );
 // router.get("/:searchName/trees/3-oldest", controller.threeOldestTreesByName);
-// router.get("/:id/trees/average-age", controller.averageTreeAgeByUserId);
+router.get("/:ownerId/cars/average-mileage", controller.getOwnerCarAverageMile);
 router.get("/:ownerId/cars", controller.readCarsByOwnerId);
 // router.put(
 //   "/:userId/trees/:treeId/water",

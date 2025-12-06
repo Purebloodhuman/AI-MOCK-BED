@@ -44,3 +44,20 @@ module.exports.readCarsByOwnerId = (req, res, next) => {
   };
   model.selectByOwnerId(data, callback);
 };
+
+module.exports.getOwnerCarAverageMile = (req, res) => {
+  const ownerId = req.params.ownerId;
+  model.selectOwnerCarStats(ownerId, (err, results) => {
+    if (err) return res.status(500).json({ message: "Internal server error." });
+
+    const stats = results[0];
+    if (!stats || stats.numberOfCars === 0) {
+      return res.status(200).json({ message: "No cars found." });
+    }
+
+    res.status(200).json({
+      averageMileage: stats.averageMileage,
+      numberOfCars: stats.numberOfCars,
+    });
+  });
+};

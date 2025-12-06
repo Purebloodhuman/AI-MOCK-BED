@@ -32,3 +32,14 @@ module.exports.selectByOwnerId = (data, callback) => {
   const VALUES = [data.ownerId];
   pool.query(SQLSTATEMENT, VALUES, callback);
 };
+
+module.exports.selectOwnerCarStats = (ownerId, callback) => {
+  const SQLStatement = `
+    SELECT 
+      FORMAT(AVG(mileage), 2) as averageMileage, 
+      COUNT(*) as numberOfCars 
+    FROM Car
+    WHERE owner_id = ?
+  `;
+  pool.query(SQLStatement, [ownerId], callback);
+};
