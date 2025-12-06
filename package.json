@@ -1,0 +1,28 @@
+{
+  "name": "ai-mock-bed",
+  "version": "1.0.0",
+  "description": "AI mock simulatino",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run init_tables && jest --forceExit",
+    "init_tables": "node src/configs/createSchema.js && node src/configs/initTables.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Purebloodhuman/AI-MOCK-BED.git"
+  },
+  "author": "Min Khant",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Purebloodhuman/AI-MOCK-BED/issues"
+  },
+  "homepage": "https://github.com/Purebloodhuman/AI-MOCK-BED#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "mysql2": "^3.15.3",
+    "nodemon": "^3.1.11"
+  }
+}
